@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 4000;
 //  test route
 
 app.get("/", (req, res) => {
-  res.send("Hello, World!!");
+  res.send("Hello, World how are you");
 });
 
 app.listen(PORT, "0.0.0.0", () => {
