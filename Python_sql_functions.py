@@ -24,7 +24,7 @@ class SQL_Connection:
     cursor.execute("USE amazon_clone;")
     print("Connected to Railway MySQL!")
     cursor.execute(
-        " CREATE TABLE IF NOT EXISTS Products (prodid VARCHAR(10) NOT NULL PRIMARY KEY,title VARCHAR(600),imgurl VARCHAR(500),producturl VARCHAR(500),reviews INT,price FLOAT,isbestseller TINYINT(1),boughtlastmonth  INT,categoryname VARCHAR(100),stars FLOAT);"
+        " CREATE TABLE IF NOT EXISTS products (prodid VARCHAR(10) NOT NULL PRIMARY KEY,title VARCHAR(600),imgurl VARCHAR(500),producturl VARCHAR(500),reviews INT,price FLOAT,isbestseller TINYINT(1),boughtlastmonth  INT,categoryname VARCHAR(100),stars FLOAT);"
     )
 
     def create_table_products(self, table_name):
