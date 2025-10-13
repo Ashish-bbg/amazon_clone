@@ -1,17 +1,61 @@
-# Node modules
-node_modules/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
 
-# Environment variables
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment variable files
 .env
+.env.*
 
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
 
-# Optional OS files
+# macOS system files
 .DS_Store
-Thumbs.db
 
-# Build folder (if any)
+# VS Code settings (optional)
+.vscode/
+
+# PyCharm project files (optional)
+.idea/
+
+# Logs and debug files
+*.log
+
+# SQLite/MySQL dump files
+*.sql
+*.sqlite3
+
+# Python egg files
+*.egg
+*.egg-info/
 dist/
+build/
+
+# Pip dependency files that might be OS-specific
+pip-log.txt
+pip-delete-this-directory.txt
+
+# pytest cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+
+# Railway local config (if exists)
+railway.json
+
+# __init__.py compiled artifacts
+*.pyo
+
+# Static analysis
+.mypy_cache/
+.pyre/
+.pytype/
