@@ -1,5 +1,7 @@
 import Python_sql_functions as py
 from flask import Flask,jsonify,request
+import os
+from dotenv import load_dotenv
 
 
 
@@ -35,4 +37,5 @@ def get_product_by_id(prod_id):
 
 if __name__=="__main__":
     app.run(debug=True)
+    app.run(host="0.0.0.0", port=os.getenv("PORT"), debug=True)
 
