@@ -13,9 +13,9 @@ conn=py.SQL_Connection()
 def home():
     return py.SQL_Connection.home()
 
-@app.route("/api/table_description")
+@app.route("/api/add_to_cart")
 def table_description():
-     return conn.create_table_products("demo1")
+     return conn.create_table_products("Cart")
 
 @app.route('/api/products')
 def get_products():

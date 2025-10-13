@@ -22,14 +22,15 @@ class SQL_Connection:
     con = sql.connect(**db_config)
     cursor = con.cursor()
     print("Connected to Railway MySQL!")
+    cursor.execute(" CREATE TABLE IF NOT EXISTS Products (prodid VARCHAR(10) NOT NULL PRIMARY KEY,title VARCHAR(600),imgurl VARCHAR(500),producturl VARCHAR(500),reviews INT,price FLOAT,isbestseller TINYINT(1),boughtlastmonth  INT,categoryname VARCHAR(100),stars FLOAT);")
+
 
     def create_table_products(self, table_name):
         # table_name=self.table_name
         SQL_Connection.cursor.execute(
             f" CREATE TABLE IF NOT EXISTS {table_name} (prodid VARCHAR(10) NOT NULL PRIMARY KEY,title VARCHAR(600),imgurl VARCHAR(500),producturl VARCHAR(500),reviews INT,price FLOAT,isbestseller TINYINT(1),boughtlastmonth  INT,categoryname VARCHAR(100),stars FLOAT);"
         )
-        SQL_Connection.cursor.execute(f"""desc {table_name};""")
-        return jsonify(SQL_Connection.cursor.execute(f"""desc {table_name};"""))
+        return jsonify({"Success":f"Table {table_name} Created!!"})
 
     def home():
         return jsonify({"message": "Welcome to AMAZON"})
