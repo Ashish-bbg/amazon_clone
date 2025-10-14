@@ -54,4 +54,21 @@ class SQL_Connection:
             data = [dict(zip(columns, row)) for row in rows]
             return data
         except Exception as e:
-            return {"error": str(e)}
+            return {"Error": str(e)}
+    
+    def add_new_product(self, prod_id, title, imageurl, producturl, reviews, price, isbestseller, bought_lastmonth, category_name, stars):
+        try:
+            query = """
+                INSERT INTO products (
+                    prodid, title, imgurl, producturl, reviews, price, isbestseller, boughtlastmonth, categoryname, stars
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """
+            self.cursor.execute(query, (
+                prod_id, title, imageurl, producturl, reviews, price,
+                isbestseller, bought_lastmonth, category_name, stars
+            ))
+            self.con.commit()  # commit the transaction to satave da
+            return {"Success": f"Data with Product id: {prod_id} successfully inserted!"}
+        except Exception as e:
+            return {"Error": str(e)}
+
