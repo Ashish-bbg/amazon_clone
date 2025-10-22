@@ -24,13 +24,13 @@ def get_product(prod_id):
         return jsonify(data), 500
     return jsonify(data)
 
-@product_bp.route("/products", methods=["POST"])
+@product_bp.route("/product", methods=["POST"])
 def add_product():
     prod_data = request.get_json()
 
     # Simple required fields check
     required = ["prod_id", "title", "imageurl", "producturl", "reviews", "price",
-                "isbestseller", "bought_lastmonth", "category_name", "stars"]
+                "isbestseller", "bought_lastmonth", "category_name", "stars","stock"]
     if not all(k in prod_data for k in required):
         return jsonify({"error": "Missing required fields"}), 400
 

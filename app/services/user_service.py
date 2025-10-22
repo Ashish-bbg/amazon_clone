@@ -7,9 +7,10 @@ class UserService:
 
     def get_users(self):
         self.cursor.execute("SELECT * FROM users;")
-        columns = [desc[0] for desc in self.cursor.description]
         rows = self.cursor.fetchall()
-        return [dict(zip(columns, row)) for row in rows]
+        if rows:
+            return (rows)
+        return None
 
     def get_user_by_id(self, user_id):
         self.cursor.execute("SELECT * FROM users WHERE user_id = %s", (user_id,))

@@ -16,7 +16,8 @@ class ProductModel:
                 isbestseller TINYINT(1),
                 boughtlastmonth INT,
                 categoryname VARCHAR(100),
-                stars FLOAT
+                stars FLOAT,
+                stock INT DEFAULT 10
             );
             """
         )

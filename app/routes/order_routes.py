@@ -12,7 +12,7 @@ OrderModel(db.cursor).create_table()
 order_service = OrderService(db.cursor, db.con)
 
 @order_bp.route("/orders", methods=["POST"])
-def create_order():
+def checkout():
     data = request.get_json()
     user_id = data.get("user_id")
     total_price = data.get("total_price")
@@ -20,7 +20,7 @@ def create_order():
     if not user_id or total_price is None:
         return jsonify({"error": "Missing user_id or total_price"}), 400
 
-    result = order_service.create_order(user_id, total_price)
+    result = order_service.checkout(user_id, total_price)
     status = 200 if "success" in result else 500
     return jsonify(result), status
 

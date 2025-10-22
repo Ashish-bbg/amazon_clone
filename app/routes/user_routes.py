@@ -14,7 +14,10 @@ user_service = UserService(db.cursor, db.con)
 
 @user_bp.route("/users", methods=["GET"])
 def get_users():
-    return jsonify(user_service.get_users())
+    user = user_service.get_users()
+    if user:
+        return jsonify(user)
+    return jsonify({"error": "NO User not found"}), 404
 
 @user_bp.route("/users/<user_id>", methods=["GET"])
 def get_user(user_id):
@@ -23,7 +26,7 @@ def get_user(user_id):
         return jsonify(user)
     return jsonify({"error": "User not found"}), 404
 
-@user_bp.route("/users", methods=["POST"])
+@user_bp.route("/add_user", methods=["POST"])
 def add_user():
     data = request.get_json()
     required = ["user_id", "name", "email", "password_hash", "address"]
